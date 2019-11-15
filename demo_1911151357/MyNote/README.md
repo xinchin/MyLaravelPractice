@@ -24,3 +24,7 @@
 
 
 ----------
+
+### add a new Controller
+
+> php artisan make:Controller HelloController
