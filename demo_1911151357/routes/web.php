@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/hello', 'HelloController@index')->name('hello');
 Route::get('/test', function(){
     return time();
 });
