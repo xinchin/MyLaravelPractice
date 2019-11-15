@@ -10,6 +10,14 @@
 
 > php artisan migrate
 
+-------------------
+
+### Description
+> Web 認證
+
+### Reference
+
+> https://www.bilibili.com/video/av74879198?p=1
 
 -------------------
 ### 若不要使用者註冊：
