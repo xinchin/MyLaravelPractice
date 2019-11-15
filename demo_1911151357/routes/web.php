@@ -30,3 +30,6 @@ Route::get('/test', function(){
     dump(Auth::check());
     return time();
 });
+Route::get('/auth', function(){
+    return 'hello auth';
+})->middleware('auth');
