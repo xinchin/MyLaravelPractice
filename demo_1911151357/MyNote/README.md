@@ -17,3 +17,10 @@
 > Auth::routes(['register'=>false]);
 
 -------------
+
+### 重定義：登入後導向的位置
+#### LoginController.php
+> protected $redirectTo = '/test';
+
+
+----------
