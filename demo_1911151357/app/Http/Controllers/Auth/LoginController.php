@@ -37,8 +37,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectto(){
-        // return '/test';
-        return route('hello');
-    }
+    // public function redirectto(){
+    //     // return '/test';
+    //     return route('hello');
+    // }
 }
