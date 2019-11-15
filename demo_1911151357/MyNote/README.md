@@ -36,3 +36,14 @@
 ### add a new Controller
 
 > php artisan make:Controller HelloController
+
+--------------
+### 登入欄位驗證，email 改為 name
+
+#### LoginController.php
+
+> public function username(){
+> 
+>       return 'name';
+> 
+> }
