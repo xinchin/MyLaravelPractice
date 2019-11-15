@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// 若不要使用者註冊：
+// Auth::routes(['register'=>false]);
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
