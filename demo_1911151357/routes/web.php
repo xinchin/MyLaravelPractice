@@ -24,6 +24,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/hello', 'HelloController@index')->name('hello');
+Route::get('/hello/show', 'HelloController@show')->name('hello.show');
+Route::get('/hello/test', 'HelloController@test')->name('hello.test');
+
 Route::get('/test', function(){
     dump(Auth::user());
     dump(Auth::id());
