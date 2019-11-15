@@ -25,5 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/hello', 'HelloController@index')->name('hello');
 Route::get('/test', function(){
+    dump(Auth::user());
+    dump(Auth::id());
+    dump(Auth::check());
     return time();
 });
