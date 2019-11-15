@@ -36,3 +36,7 @@ Route::get('/test', function(){
 Route::get('/auth', function(){
     return 'hello auth';
 })->middleware('auth');
+
+Route::get('testLogout', function(){
+    Auth::logout();
+});
