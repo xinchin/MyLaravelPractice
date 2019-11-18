@@ -42,6 +42,11 @@ class ApiController extends Controller
         return \compact('api_token');
     }
 
+    public function logout(){
+        auth()->user()->update(['api_token'=>null]);
+        return ['message'=>'logout success'];
+    }
+
     protected function validator(array $data){
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
