@@ -92,3 +92,40 @@ composer create-project --prefer-dist laravel/laravel demo_1911181040
 > 
 > use Notifiable, HasApiTokens;
 
+### install guzzlehttp （偽造 Http 請求）
+> composer require guzzlehttp/guzzle
+
+### 配置 passport 認證
+#### config/auth.php
+
+> 'defaults' => [
+> 
+>        'guard' => 'api',
+> 
+>        'passwords' => 'users',
+> 
+>    ],
+
+
+>    'guards' => [
+> 
+>        'web' => [
+> 
+>            'driver' => 'session',
+> 
+>            'provider' => 'users',
+> 
+>        ],
+> 
+>        'api' => [
+> 
+>            'driver' => 'passport',
+> 
+>            'provider' => 'users',
+> 
+>            'hash' => false,
+> 
+>        ],
+> 
+>    ],
+> 
