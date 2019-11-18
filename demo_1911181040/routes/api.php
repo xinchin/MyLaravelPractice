@@ -25,3 +25,6 @@ Route::post('/login', 'PassportController@login');
 Route::post('/logout', 'PassportController@logout');
 Route::post('/refresh', 'PassportController@refresh');
 
+Route::get('test', function(){
+    return 'ok';
+})->middleware('auth');

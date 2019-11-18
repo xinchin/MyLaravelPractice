@@ -143,3 +143,10 @@ composer create-project --prefer-dist laravel/laravel demo_1911181040
 > 
 > Route::post('/refresh', 'PassportController@refresh');
 
+### 設置一個需驗證的測試用路由
+
+> Route::get('test', function(){
+> 
+>       return 'ok';
+> 
+> })->middleware('auth');
