@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController');
+Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
 
 Route::post('/register', 'PassportController@register');
 Route::post('/login', 'PassportController@login');
