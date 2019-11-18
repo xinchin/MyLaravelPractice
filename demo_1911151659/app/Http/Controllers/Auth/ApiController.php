@@ -47,6 +47,12 @@ class ApiController extends Controller
         return ['message'=>'logout success'];
     }
 
+    public function refresh(){
+        $api_token = Str::random(80);
+        auth()->user()->update(['api_token'=>hash('sha256', $api_token)]);
+        return compact('api_token');
+    }
+
     protected function validator(array $data){
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
