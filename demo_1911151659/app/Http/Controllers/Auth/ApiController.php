@@ -28,6 +28,20 @@ class ApiController extends Controller
         return compact('api_token');
     }
 
+    public function login(){
+        $user = User::where($this->username(), \request($this->username()))
+        ->firstOrFail();
+
+        if(!\password_verify(\request('password'), $user->password)){
+            return \response()->json(['error'=> 'sorry, there are some error'], 403);
+        }
+
+        $api_token = Str::random(80);
+        $user->update(['api_token'=>hash('sha256', $api_token)]);
+
+        return \compact('api_token');
+    }
+
     protected function validator(array $data){
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
