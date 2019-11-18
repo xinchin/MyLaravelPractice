@@ -36,3 +36,14 @@
 ### make:request
 > php artisan make:request BaseRequest
 
+### Setting Route
+#### api.php
+
+Route::post('/register', 'Auth\ApiController@register');
+Route::post('/login', 'Auth\ApiController@login');
+Route::post('/refresh', 'Auth\ApiController@refresh');
+Route::post('/logout', 'Auth\ApiController@logout');
+
+### make Controller
+#### Auth\ApiController
+> php artisan make:Controller Auth\ApiController
