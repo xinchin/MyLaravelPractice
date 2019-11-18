@@ -131,3 +131,15 @@ composer create-project --prefer-dist laravel/laravel demo_1911181040
 > 
 
 ### 註冊路由
+
+
+> Route::post('/oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController');
+> 
+> Route::post('/register', 'PassportController@register');
+> 
+> Route::post('/login', 'PassportController@login');
+> 
+> Route::post('/logout', 'PassportController@logout');
+> 
+> Route::post('/refresh', 'PassportController@refresh');
+
