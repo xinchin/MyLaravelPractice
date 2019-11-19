@@ -150,3 +150,55 @@ composer create-project --prefer-dist laravel/laravel demo_1911181040
 >       return 'ok';
 > 
 > })->middleware('auth');
+
+## 使用 scope
+
+### 註冊 scope
+
+#### AppServiceProvider.php
+
+> Passport::tokensCan([
+> 
+>       'test1'=>'for test',
+> 
+>       'test2'=>'for test2',
+> 
+> ]);
+
+
+### 註冊中間件
+
+#### Kernel.php
+
+> 'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class, // and
+> 
+> 'scope' => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class, // or
+
+### 使用
+
+> ->middleware('scope:test1');
+> 
+> ->middleware('scope:test2');
+> 
+> ->middleware('scope:test1,test2');
+> 
+> if(auth()->user()->tokenCan('test1')){
+> 
+>       $scopeIds = Passport::scopes();
+> 
+> }
+
+### 其它操作
+
+> $scopeIds = Passport::scopeIds();
+> 
+> $scopes = Passport::scopes();
+> 
+> $scopesFor = Passport::scopesFor(['test1','check-status','test2']);
+> 
+> $hasScope = Passport::hasScope('showshow');
+> 
+
+
+
+

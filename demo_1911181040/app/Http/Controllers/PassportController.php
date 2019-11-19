@@ -52,7 +52,7 @@ class PassportController extends Controller
                 'password'=>request('password'),
                 'client_id'=>$this->clientId,
                 'client_secret'=>$this->clientSecret,
-                'scope'=>'*',
+                'scope'=>'test1',
             ]
         ]);
         return $response->getBody();

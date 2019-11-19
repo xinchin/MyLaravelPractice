@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Laravel\Passport\Passport;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,34 @@ Route::post('/login', 'PassportController@login');
 Route::post('/logout', 'PassportController@logout');
 Route::post('/refresh', 'PassportController@refresh');
 
+// Route::get('/test', function(){
+//     return 'ok';
+// })->middleware('auth');
+
 Route::get('/test', function(){
-    return 'ok';
+    $scopeIds = Passport::scopeIds();
+    $scopes = Passport::scopes();
+    $scopesFor = Passport::scopesFor(['test1','check-status','test2']);
+    $hasScope = Passport::hasScope('showshow');
+
+    $result = 'nok';
+    if(auth()->user()->tokenCan('test1')){
+        $result = 'ok';
+    }
+
+    return compact('result','scopeIds','scopes','scopesFor','hasScope');
+
 })->middleware('auth');
+
+// Route::get('/test', function(){
+//         return 'ok';
+// })->middleware('scope:test1');
+
+// Route::get('/test', function(){
+//         return 'ok';
+// })->middleware('scope:test2');
+
+// Route::get('/test', function(){
+//         return 'ok';
+// })->middleware('scope:test1,test2');
+
