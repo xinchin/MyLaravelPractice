@@ -90,4 +90,18 @@ class PassportController extends Controller
         return $response->getBody();
     }
 
+    public function logout()
+    {
+        $tokenModel = auth()->user()->token();
+        $tokenModel->update([
+            'revoked'=>1,
+        ]);
+
+        DB::table('oauth_refresh_tokens')
+        ->where(['access_token_id'=>$tokenModel->id])
+        ->update(['revoked'=>1]);
+
+        return ['message'=>'Logout Success'];
+    }
+
 }
