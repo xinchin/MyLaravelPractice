@@ -76,4 +76,18 @@ class PassportController extends Controller
         return $this->getToken();
     }
 
+    public function refresh()
+    {
+        $response =  (new Client())->post('http://localhost:8000/api/oauth/token',[
+            'form_params' =>[
+                'grant_type'=>'refresh_token',
+                'refresh_token'=>request('refresh_token'),
+                'client_id'=>$this->clientId,
+                'client_secret'=>$this->clientSecret,
+                'scope'=>'*',
+            ]
+        ]);
+        return $response->getBody();
+    }
+
 }
