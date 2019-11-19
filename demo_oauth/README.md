@@ -9,7 +9,7 @@
 > php artisan passport:client
 
 
-
+--------------------------------
 $ php artisan passport:client
 
  Which user ID should the client be assigned to?:
@@ -26,5 +26,20 @@ Client ID: 1
 Client secret: okohIvKpPjDBcVthrRxALd36qFKjOxUfZefen0iS
 
 nelson.huang@wan014033 MINGW64 /d/RD_2019/WebSite/MyLaravelPractice/demo_oauth/demo_1911191508 (master)
+
+-----------
+
+> composer require laravel/ui
+> 
+> php artisan ui vue --auth
+> 
+> npm install
+> 
+> npm run dev
+> 
+> composer require guzzlehttp/guzzle
+
+
+
 
 
